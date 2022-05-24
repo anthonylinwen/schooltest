@@ -11291,9 +11291,23 @@ html {
 
 .bg-featured-blog {
   height: 100%;
-  width: 100%;
+  width: 30%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 15rem;
+}
+
+#myProgress1,#myProgress2 {
+  width:40%;
+  height:20px;
+  position: relative;
+  background-color: #ddd;
+}
+
+#myBar1,#myBar2 {
+  background-color: #f00;
+  width:40px;
+  height:20px;
+  position: absolute;
 }
