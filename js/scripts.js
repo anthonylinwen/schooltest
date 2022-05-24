@@ -1,11 +1,10 @@
-        <script type="text/javascript">
-           // num = num +¢∞;
+Ôªø           // num = num +Ôºë;
            //   getDATA();
           const element1 = document.getElementById("myBar1");
           const element2 = document.getElementById("myBar2");     
           let width = 0;
           $(function(){
- 	         const id = setInterval(getDATA,5000);
+ 	         const id = setInterval(getDATA, 3000);
  	       //  const id2 = setInterval(getDATA2, 5000);  
           });
                
@@ -35,19 +34,19 @@
                     		//  console.log(itemData2); 	
                     		  $.each(itemData2,function(key3,item3){  
                              if (key3 === '200009') {
-                 	           $("#h11").html('™—≤º¶W∫Ÿ°G' + item3 ); 
+                 	           $("#h11").html('ËÇ°Á•®ÂêçÁ®±Ôºö' + item3 ); 
                              }
                              if (key3 === '6') {
-                 	           $("#h12").html('™—ª˘°G' + item3 ); 
+                 	           $("#h12").html('ËÇ°ÂÉπÔºö' + item3 ); 
                              }
                              if (key3 === '11') {
-                 	           $("#h13").html('(∫¶°˛∂^)°G' + item3 ); 
+                 	           $("#h13").html('(Êº≤ÔºèË∑å)Ôºö' + item3 ); 
                              } 
                              if (key3 === '12') {
-                 	           $("#h14").html('≥Ã∞™°G' + item3 ); 
+                 	           $("#h14").html('ÊúÄÈ´òÔºö' + item3 ); 
                              }
                              if (key3 === '13') {
-                 	           $("#h15").html('≥ÃßC°G' + item3 ); 
+                 	           $("#h15").html('ÊúÄ‰ΩéÔºö' + item3 ); 
                              } 
                         }) ;                 		
                     	}
@@ -70,19 +69,19 @@
                     		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
-                 	              $("#h21").html('™—≤º¶W∫Ÿ°G' + item31 ); 
+                 	              $("#h21").html('ËÇ°Á•®ÂêçÁ®±Ôºö' + item31 ); 
                              }
                              if (key31 === '6') {
-                 	              $("#h22").html('™—ª˘°G' + item31 ); 
+                 	              $("#h22").html('ËÇ°ÂÉπÔºö' + item31 ); 
                              }
                              if (key31 === '11') {
-                 	              $("#h23").html('(∫¶°˛∂^)°G' + item31 ); 
+                 	              $("#h23").html('(Êº≤ÔºèË∑å)Ôºö' + item31 ); 
                              } 
                              if (key31 === '12') {
-                 	              $("#h24").html('≥Ã∞™°G' + item31 ); 
+                 	              $("#h24").html('ÊúÄÈ´òÔºö' + item31 ); 
                              }
                              if (key31 === '13') {
-                 	              $("#h25").html('≥ÃßC°G' + item31 ); 
+                 	              $("#h25").html('ÊúÄ‰ΩéÔºö' + item31 ); 
                              } 
                         }) ;                 		
                     	}
@@ -93,6 +92,3 @@
                 });    
               //  Ending another stock section   
                };           
-
-    
-</script>
