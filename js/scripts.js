@@ -4,7 +4,7 @@
           const element2 = document.getElementById("myBar2");     
           let width = 0;
           $(function(){
- 	         const id = setInterval(getDATA, 3000);
+ 	         const id = setInterval(getDATA, 30000);
  	       //  const id2 = setInterval(getDATA2, 5000);  
           });
                
@@ -34,24 +34,51 @@
                     		//  console.log(itemData2); 	
                     		  $.each(itemData2,function(key3,item3){  
                              if (key3 === '200009') {
-                 	           $("#h11").html('股票名稱：' + item3 ); 
+                 	           $("#span11").html(item3); 
                              }
                              if (key3 === '6') {
-                 	           $("#h12").html('股價：' + item3 ); 
-                             }
+                 	           $("#span12").html(item3);                              }
                              if (key3 === '11') {
-                 	           $("#h13").html('(漲／跌)：' + item3 ); 
+                             	  if (item3> 0) 
+                             	      {
+                             	       	$("#span12").addClass("risePrice"); 
+                             	       	$("#span13").addClass("risePrice"); 
+                             	       // $("#span13").html("＋" +　item3); 	
+                             	      } 
+                             	  else {
+                             	  	 if (item3 === 0){ 	
+                             	  	 }
+                             	  	 else {
+                             	  	 	 $("#span12").addClass("flatPrice"); 
+                             	       $("#span13").addClass("flatPrice"); 	
+                             	  	 }
+                             	  }
+                             	  $("#span13").html(item3); 
                              } 
                              if (key3 === '12') {
-                 	           $("#h14").html('最高：' + item3 ); 
+                 	               $("#span14").html(item3); 
                              }
                              if (key3 === '13') {
-                 	           $("#h15").html('最低：' + item3 ); 
+                 	               $("#span15").html(item3); 
                              } 
                         }) ;                 		
                     	}
                      });
                    //  console.log(item1[0]);
+                       if ($("#span14").html() >= $("#span12").html() - $("#span13").html())
+                       {
+                       	  $("#span14").addClass("highestPrice");
+                       }  
+                       else {
+                       	  $("#span14").addClass("lowestPrice");
+                       }
+                       if ($("#span15").html() >= $("#span12").html() - $("#span13").html())
+                       {
+                       	  $("#span15").addClass("highestPrice");
+                       }  
+                       else {
+                       	  $("#span15").addClass("lowestPrice");
+                       }                  
                   }
                  });
                 });     
@@ -69,24 +96,52 @@
                     		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
-                 	              $("#h21").html('股票名稱：' + item31 ); 
+                 	              $("#span21").html(item31); 
                              }
                              if (key31 === '6') {
-                 	              $("#h22").html('股價：' + item31 ); 
+                 	              $("#span22").html(item31); 
                              }
                              if (key31 === '11') {
-                 	              $("#h23").html('(漲／跌)：' + item31 ); 
+                             	  if (item31> 0) 
+                             	      {
+                             	       	$("#span22").addClass("risePrice"); 
+                             	       	$("#span23").addClass("risePrice"); 
+                             	       // $("#span13").html("＋" +　item3); 	
+                             	      } 
+                             	  else {
+                             	  	 if (item31 === 0){ 	
+                             	  	 }
+                             	  	 else {
+                             	  	 	 $("#span22").addClass("flatPrice"); 
+                             	       $("#span23").addClass("flatPrice"); 	
+                             	  	 }
+                             	  }
+                             	  $("#span23").html(item31); 
                              } 
                              if (key31 === '12') {
-                 	              $("#h24").html('最高：' + item31 ); 
+                 	               $("#span24").html(item31); 
                              }
                              if (key31 === '13') {
-                 	              $("#h25").html('最低：' + item31 ); 
+                 	               $("#span25").html(item31); 
                              } 
                         }) ;                 		
                     	}
                      });
                    //  console.log(item1[0]);
+                       if ($("#span24").html() >= $("#span22").html() - $("#span23").html())
+                          {
+                       	    $("#span24").addClass("highestPrice");
+                          }  
+                       else {
+                       	  $("#span24").addClass("lowestPrice");
+                          }
+                       if ($("#span25").html() >= $("#span22").html() - $("#span23").html())
+                          {
+                       	  $("#span25").addClass("highestPrice");
+                          }  
+                       else {
+                       	  $("#span25").addClass("lowestPrice");
+                       }                  
                   }
                  });
                 });    

@@ -11311,3 +11311,23 @@ html {
   height:20px;
   position: absolute;
 }
+
+.risePrice {
+  color: #F30E4B;
+}
+
+.fellPrice {
+  color: #1DC91D;
+}
+
+.flatPrice {
+  color: #fff;
+}
+
+.highestPrice {
+  color:#FA0DF6;
+}
+
+.lowestPrice {
+  color:#A43CFF;
+}
