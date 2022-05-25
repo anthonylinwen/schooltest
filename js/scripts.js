@@ -3,17 +3,19 @@
           const element1 = document.getElementById("myBar1");
           const element2 = document.getElementById("myBar2");     
           let width = 0;
+          let text ='' ;
           $(function(){
  	         const id = setInterval(getDATA, 30000);
  	       //  const id2 = setInterval(getDATA2, 5000);  
           });
                
           function getDATA() {
+          	   var d = new Date();
         	     //  var num += 1 ;
         	     //  num += 1 ;
         	     //  document.getElementById("date").innerHTML = text;    	 
-               //  dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT"); // Saturday, June 9th, 2007, 5:46:21 PM
-               //  $('#date').html(text);
+              // text = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT"); // Saturday, June 9th, 2007, 5:46:21 PM
+               $('#date1').html(d.getMonth() + '/' + d.getDate() + '__' + d.getHours() + ':'  + d.getMinutes());
                if (width === 100) {
                    clearInterval(id1);
                    } else {
@@ -37,7 +39,7 @@
                  	           $("#span11").html(item3); 
                              }
                              if (key3 === '6') {
-                 	           $("#span12").html(item3);                              }
+                 	           $("#span12").html(item3);}
                              if (key3 === '11') {
                              	  if (item3> 0) 
                              	      {
