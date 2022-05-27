@@ -5,7 +5,7 @@
           let width = 0;
           let text ='' ;
           $(function(){
- 	         const id = setInterval(getDATA, 30000);
+ 	         const id = setInterval(getDATA, 15000);
  	       //  const id2 = setInterval(getDATA2, 5000);  
           });
                
@@ -48,11 +48,13 @@
                              	       // $("#span13").html("＋" +　item3); 	
                              	      } 
                              	  else {
-                             	  	 if (item3 === 0){ 	
+                             	  	 if (item3 === 0){ 
+                             	  	 	 $("#span12").addClass("flatPrice"); 
+                             	       $("#span13").addClass("flatPrice"); 		
                              	  	 }
                              	  	 else {
-                             	  	 	 $("#span12").addClass("flatPrice"); 
-                             	       $("#span13").addClass("flatPrice"); 	
+                             	  	 	 $("#span12").addClass("fellPrice"); 
+                             	       $("#span13").addClass("fellPrice"); 	
                              	  	 }
                              	  }
                              	  $("#span13").html(item3); 
@@ -111,11 +113,13 @@
                              	       // $("#span13").html("＋" +　item3); 	
                              	      } 
                              	  else {
-                             	  	 if (item31 === 0){ 	
+                             	  	 if (item31 === 0){ 
+                             	  	 	  $("#span22").addClass("flatPrice"); 
+                             	        $("#span23").addClass("flatPrice"); 		
                              	  	 }
                              	  	 else {
-                             	  	 	 $("#span22").addClass("flatPrice"); 
-                             	       $("#span23").addClass("flatPrice"); 	
+                             	  	 	 $("#span22").addClass("fellPrice"); 
+                             	       $("#span23").addClass("fellPrice"); 	
                              	  	 }
                              	  }
                              	  $("#span23").html(item31); 
@@ -147,5 +151,71 @@
                   }
                  });
                 });    
-              //  Ending another stock section   
+              //  Ending another stock section 
+              //  Weighed index  section   
+                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?symbol=TWS:TSE01:INDEX&resolution=D&quote=1&from=NaN&to=NaN',function(data){
+                    // console.log('success');
+                  $.each(data,function(key11,item11){
+                     if (key11 === 'data') {
+                   	//  $('ul').append('<li>'+item1+'</li>');                   	
+                    var itemData11 = item11; 	          
+                    $.each(itemData11,function(key21,item21){
+                      if (key21  === 'o' ){
+                    	   $("#wi-o").html('開:' + item21); 
+                      	}
+                    	if (key21  === 'h' ){
+                    	   $("#wi-h").html('高:' +item21); 
+                    	 	}
+                    	if (key21  === 'l' ){
+                    	   $("#wi-l").html('低:' + item21); 
+                    	 	}
+                    	if (key21  === 'c' ){
+                    	   $("#wi-c").html('尾:' + item21);                     	                   	 	
+                    	}
+                    	
+                    	if (key21  === 'quote' ) {
+                    		  var itemData21 = item21;
+                    		 // console.log(itemData21); 	
+                    		  $.each(itemData21,function(key31,item31){  
+                             if (key31 === '200009') {
+                 	              $("#wi-t").html(item31); 
+                             }
+                             if (key31 === '11') {
+                             	  if (item31> 0) 
+                             	      {
+                             	       	$("#wi-d").addClass("risePrice"); 
+                             	      } 
+                             	  else {
+                             	  	 if (item31 === 0){ 
+                              	  	  $("#wi-d").addClass("flatPrice");                             	  	 		
+                             	  	 }
+                             	  	 else {
+
+                             	       $("#wi-d").addClass("fellPrice"); 	
+                             	  	 }
+                             	  }
+                             	  $("#wi-d").html('(+/-)' +　item31); 
+                             } 
+                        }) ;                 		
+                    	}
+                     });
+                   //  console.log(item1[0]);
+                       if ($("#span24").html() >= $("#span22").html() - $("#span23").html())
+                          {
+                       	    $("#span24").addClass("highestPrice");
+                          }  
+                       else {
+                       	  $("#span24").addClass("lowestPrice");
+                          }
+                       if ($("#span25").html() >= $("#span22").html() - $("#span23").html())
+                          {
+                       	  $("#span25").addClass("highestPrice");
+                          }  
+                       else {
+                       	  $("#span25").addClass("lowestPrice");
+                       }                  
+                  }
+                 });
+                });    
+              //  Ending Weighed index section     
                };           

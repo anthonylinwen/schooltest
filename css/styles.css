@@ -11332,6 +11332,21 @@ html {
   color:#A43CFF;
 }
 
+.wii-sum {
+  font-size:1.75rem;
+  color:#FFB300;
+}
+
+.wii-diff {
+  font-size:1.5rem;
+  color:#FFB300;
+}
+
+.wi-box {
+  font-size:1.5rem;
+  color:#FFB300;
+}
+
 .time-box {
   font-size:1.75rem;
   color:#FFB300;
