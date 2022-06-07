@@ -11312,6 +11312,12 @@ html {
   position: absolute;
 }
 
+#wrap {
+  background-color: #ddd;
+  height:20px;
+  position: absolute;
+}
+
 .risePrice {
   color: #F30E4B;
 }
@@ -11322,6 +11328,26 @@ html {
 
 .flatPrice {
   color: #fff;
+}
+
+.wi-risePrice {
+	font-size:1.75rem;
+  color: #F30E4B;
+  
+}
+
+.wi-fellPrice {
+	font-size:1.75rem;
+  color: #1DC91D;
+}
+
+.wi-flatPrice {
+  font-size:1.75rem;
+  color: #fff;
+}
+
+.wi-t {
+  font-size:1.5rem;
 }
 
 .highestPrice {

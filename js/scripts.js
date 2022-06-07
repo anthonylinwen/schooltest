@@ -1,29 +1,132 @@
-﻿           // num = num +１;
-           //   getDATA();
-          const element1 = document.getElementById("myBar1");
-          const element2 = document.getElementById("myBar2");     
-          let width = 0;
-          let text ='' ;
-          $(function(){
- 	         const id = setInterval(getDATA, 15000);
- 	       //  const id2 = setInterval(getDATA2, 5000);  
+﻿          const element1 = document.getElementById("myBar1");
+          const element2 = document.getElementById("myBar2");
+          let width = 0; 
+          window.addEventListener('load',function(){
+          	if (firstVisit === true) {
+          		 firstVisit = false;
+               document.getElementById("s01").addEventListener("change", myFunction);         		
+          	}  else {
+          		 getDATA();
+          		 id = setInterval(getDATA, refSec);
+          	}
+
           });
-               
+                            
+          function myFunction() {
+             switch ( $(this).val()) {
+                      case "0": 
+                          width = 100;
+                          break;
+                      case "1": 
+                           if (firstVisit === true) {
+                      	      refSec = 3000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index1.htm' ;
+                      	      }
+                           break;
+                      case "2":
+                           if (firstVisit === true) {
+                      	      refSec = 5000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index2.htm' ;
+                      	      }
+                           break;
+                      case "3": 
+                           if (firstVisit === true) {
+                      	      refSec = 10000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index3.htm' ;
+                      	      }
+                           break;
+                      case "4": 
+                           if (firstVisit === true) {
+                      	      refSec = 20000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index4.htm' ;
+                      	      }
+                           break;
+                      case "5": 
+                           if (firstVisit === true) {
+                      	      refSec = 30000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index5.htm' ;
+                      	      }
+                           break;
+                      case "6": 
+                           if (firstVisit === true) {
+                      	      refSec = 60000 ;
+                              } else {
+                              firstVisit = false;	
+                              url='index6.htm' ;
+                      	      }
+                           break;
+                      case "7": 
+                           if (firstVisit === true) {
+                      	      refSec = 600000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index7.htm' ;
+                      	      }
+                           break; 
+                      case "8": 
+                           if (firstVisit === true) {
+                      	      refSec = 900000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index8.htm' ;
+                      	      }
+                           break;
+                      case "9": 
+                           if (firstVisit === true) {
+                      	      refSec = 1200000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index9.htm' ;
+                      	      }
+                           break;
+                      case "10": 
+                           if (firstVisit === true) {
+                      	      refSec = 1800000 ;
+                              } else {
+                              firstVisit = false;
+                              url='index10.htm' ;
+                      	      }
+                           break;                                     
+                      default:
+                         return;
+                    } 
+
+          	   console.log(refSec);
+          	   if ( firstVisit === true ) {
+          	   	   console.log(firstVisit);
+          	   	   id = setInterval(getDATA,refSec);
+          	   } else {
+          	   	   console.log(firstVisit);
+          	   	   location.replace(url) ;
+          	   }
+            }
+                        
           function getDATA() {
-          	   var d = new Date();
-        	     //  var num += 1 ;
-        	     //  num += 1 ;
-        	     //  document.getElementById("date").innerHTML = text;    	 
-              // text = dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT"); // Saturday, June 9th, 2007, 5:46:21 PM
+           	   var d = new Date();
                $('#date1').html(d.getMonth() + '/' + d.getDate() + '__' + d.getHours() + ':'  + d.getMinutes());
-               if (width === 100) {
-                   clearInterval(id1);
+               if (width === 100 ) {
+                   clearInterval(id);
+                   element1.style.width = '0%'; 
+                   element2.style.width = '0%'; 
                    } else {
                     width += 7 ;
-                   if (width > 50) width = width-50 ; 
+                   if (width > 95) width = width-95 ; 
                       element1.style.width = width + '%'; 
                       element2.style.width = width + '%'; 
-                   }            	
+                   } 
+                if (firstVisit === false) {
+                   document.getElementById("s01").addEventListener("change", myFunction);   
+                }              	
                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2449:STOCK&quote=1',function(data){
                     // console.log('success');
                   $.each(data,function(key1,item1){
@@ -45,7 +148,7 @@
                              	      {
                              	       	$("#span12").addClass("risePrice"); 
                              	       	$("#span13").addClass("risePrice"); 
-                             	       // $("#span13").html("＋" +　item3); 	
+                             	       // $("#span13").html("???" +???item3); 	
                              	      } 
                              	  else {
                              	  	 if (item3 === 0){ 
@@ -110,7 +213,7 @@
                              	      {
                              	       	$("#span22").addClass("risePrice"); 
                              	       	$("#span23").addClass("risePrice"); 
-                             	       // $("#span13").html("＋" +　item3); 	
+                             	       // $("#span13").html("???" +???item3); 	
                              	      } 
                              	  else {
                              	  	 if (item31 === 0){ 
@@ -153,7 +256,7 @@
                 });    
               //  Ending another stock section 
               //  Weighed index  section   
-                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?symbol=TWS:TSE01:INDEX&resolution=D&quote=1&from=NaN&to=NaN',function(data){
+                 $.getJSON('stock3.json',function(data){
                     // console.log('success');
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
@@ -170,7 +273,7 @@
                     	   $("#wi-l").html('低:' + item21); 
                     	 	}
                     	if (key21  === 'c' ){
-                    	   $("#wi-c").html('尾:' + item21);                     	                   	 	
+                    	   $("#wi-c").html('收:' + item21);                     	                   	 	
                     	}
                     	
                     	if (key21  === 'quote' ) {
@@ -178,23 +281,24 @@
                     		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
+                             		$("#wi-t").addClass("wi-t"); 
                  	              $("#wi-t").html(item31); 
                              }
                              if (key31 === '11') {
                              	  if (item31> 0) 
                              	      {
-                             	       	$("#wi-d").addClass("risePrice"); 
+                             	       	$("#wi-d").addClass("wi-risePrice"); 
                              	      } 
                              	  else {
                              	  	 if (item31 === 0){ 
-                              	  	  $("#wi-d").addClass("flatPrice");                             	  	 		
+                              	  	  $("#wi-d").addClass("wi-flatPrice");                             	  	 		
                              	  	 }
                              	  	 else {
 
-                             	       $("#wi-d").addClass("fellPrice"); 	
+                             	       $("#wi-d").addClass("wi-fellPrice"); 	
                              	  	 }
                              	  }
-                             	  $("#wi-d").html('(+/-)' +　item31); 
+                             	  $("#wi-d").html('(+/-)' + item31); 
                              } 
                         }) ;                 		
                     	}
@@ -218,4 +322,33 @@
                  });
                 });    
               //  Ending Weighed index section     
-               };           
+               };  
+               
+            function locRef(sw) {
+  	             switch (sw) {
+                      case 1: 
+                          url='index1.htm' ;
+                          break;
+                      case 2: 
+                          url='index2.htm' ;
+                          break;
+                      case 3:
+                          url='index3.htm' ;
+                          break;
+                      case 4: 
+                          url='index4.htm' ;
+                          break;
+                      case 5: 
+                          url='index5.htm' ;
+                          break;
+                      case 6: 
+                          url='index6.htm' ;
+                          break;
+                      case 7: 
+                          url='index7.htm' ;
+                          break;                         
+                      default:
+                         return;
+                    } 
+                 location.replace(url)
+            }                      

@@ -13,8 +13,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <script type="text/javascript">
-           let firstVisit = true ;
-           let refSec = 0 ;
+           var refSec = 3000 ;
         </script>
     </head>
     <body class="d-flex flex-column h-100">
@@ -26,23 +25,7 @@
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
                             <h1 class="display-5 fw-bolder text-white mb-2">
-                               <div id="myProgress1"><div id="myBar1"></div></div>
-                               <span id="wrap">
-                                   <select id="s01">
-                                   	   <option value="-1" selected>-- 請選擇 --</option>
-                                       <option value="0"> = STOP =</option>
-                                       <option value="1">3's</option>
-                                       <option value="2">5's</option>
-                                       <option value="3">10's</option>
-                                       <option value="4">20's</option>
-                                       <option value="5">30's</option>
-                                       <option value="6">1'm</option>
-                                       <option value="7">10'm</option>
-                                       <option value="8">15'm</option>
-                                       <option value="9">20'm</option>
-                                       <option value="10">30'm</option>
-                                   </select>
-                                </span>
+                               <div id="myProgress1"><!-- span style="font-size:2pt;">1&nbsp;2&nbsp;3&nbsp;4&nbsp;5&nbsp;6&nbsp;7</span --><div id="myBar1"></div></div>
                         	  	 <li>名稱：<span id="span11"></span></li>
                         	 	   <li>股價：<span id="span12"></span></li>
                         	     <li>(漲／跌)<span id="span13"></span></li>
