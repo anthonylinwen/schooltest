@@ -256,7 +256,7 @@
                 });    
               //  Ending another stock section 
               //  Weighed index  section   
-                 $.getJSON('stock3.json',function(data){
+                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?symbol=TWS:TSE01:INDEX&resolution=D&quote=1&from=NaN&to=NaN',function(data){
                     // console.log('success');
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
@@ -323,32 +323,4 @@
                 });    
               //  Ending Weighed index section     
                };  
-               
-            function locRef(sw) {
-  	             switch (sw) {
-                      case 1: 
-                          url='index1.htm' ;
-                          break;
-                      case 2: 
-                          url='index2.htm' ;
-                          break;
-                      case 3:
-                          url='index3.htm' ;
-                          break;
-                      case 4: 
-                          url='index4.htm' ;
-                          break;
-                      case 5: 
-                          url='index5.htm' ;
-                          break;
-                      case 6: 
-                          url='index6.htm' ;
-                          break;
-                      case 7: 
-                          url='index7.htm' ;
-                          break;                         
-                      default:
-                         return;
-                    } 
-                 location.replace(url)
-            }                      
+                                    
