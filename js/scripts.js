@@ -4,6 +4,8 @@
           window.addEventListener('load',function(){
           	if (firstVisit === true) {
           		 firstVisit = false;
+          		 element1.style.width = '0%'; 
+               element2.style.width = '0%'; 
                document.getElementById("s01").addEventListener("change", myFunction);         		
           	}  else {
           		 getDATA();
@@ -116,8 +118,6 @@
                $('#date1').html(d.getMonth() + '/' + d.getDate() + '__' + d.getHours() + ':'  + d.getMinutes());
                if (width === 100 ) {
                    clearInterval(id);
-                   element1.style.width = '0%'; 
-                   element2.style.width = '0%'; 
                    } else {
                     width += 7 ;
                    if (width > 95) width = width-95 ; 
