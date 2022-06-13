@@ -5,7 +5,6 @@
         <title></title>
         <meta http-equiv="content-type" content="text/html;charset=utf-8" />	
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -18,67 +17,97 @@
         </script>
     </head>
     <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Header-->
-            <header class="bg-dark py-5">
-                <div class="container px-5">
-                    <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="col-lg-8 col-xl-7 col-xxl-6">
-                            <div class="my-5 text-center text-xl-start">
-                            <h1 class="display-5 fw-bolder text-white mb-2">
-                               <div id="myProgress1"><div id="myBar1"></div></div>
-                               <span id="wrap">
-                                   <select id="s01">
-                                   	   <option value="-1">-- 請選擇 --</option>
-                                       <option value="0"> = STOP =</option>
-                                       <option value="1">3's</option>
-                                       <option value="2">5's</option>
-                                       <option value="3">10's</option>
-                                       <option value="4">20's</option>
-                                       <option value="5">30's</option>
-                                       <option value="6" selected>1'm</option>
-                                       <option value="7">10'm</option>
-                                       <option value="8">15'm</option>
-                                       <option value="9">20'm</option>
-                                       <option value="10">30'm</option>
-                                   </select>
-                                </span>
-                        	  	 <li>名稱：<span id="span11"></span></li>
-                        	 	   <li>股價：<span id="span12"></span></li>
-                        	     <li>(漲／跌)<span id="span13"></span></li>
-                        	  	 <li>最高：<span id="span14"></span></li>
-                        	  	 <li>最低：<span id="span15"></span></li>
-                        	  	 <li><span id="wi-t"></span><span id="wi-d"></span></li>
-                            </h1>
-                              <span id="wi-c" class="wi-box"></span>
-                              <span id="wi-o" class="wi-box"></span>
-                              <span id="wi-h" class="wi-box"></span>
-                            	<span id="wi-l" class="wi-box"></span>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
-                        	  <h2 class="display-5 fw-bolder text-white mb-2">
-                        	    <div id="myProgress2"><div id="myBar2"></div></div>
-                        	  	 <li>名稱：<span id="span21"></span></li>
-                        	 	   <li>股價：<span id="span22"></span></li>
-                        	     <li>(漲／跌)<span id="span23"></span></li>
-                        	  	 <li>最高：<span id="span24"></span></li>
-                        	  	 <li>最低：<span id="span25"></span></li>
-                        	  </h2><span id="date1" class="time-box"></span>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-        </main>
-        <!-- Footer-->
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <main class="flex-shrink-0">
+    <div class="my-5 text-center text-xl-start">
+<table style="width:80%">
+                            	<thead>
+                            		<tr>
+                            	    <th style="width:15%"><div id="myProgress1"><div id="myBar1"></div></div></th>
+                            	    <th style="width:10%"><select id="s01">
+                                <option value="-1">請選擇</option>
+                                <option value="0">STOP</option>
+                                <option value="1" selected>3's</option>
+                                <option value="2">5's</option>
+                                <option value="3">10's</option>
+                                <option value="4">20's</option>
+                                <option value="5">30's</option>
+                                <option value="6" selected>1'm</option>
+                                <option value="7">10'm</option>
+                                <option value="8">15'm</option>
+                                <option value="9">20'm</option>
+                                <option value="10">30'm</option>
+                                </select>
+                                </th>                        		
+                            	  </tr>
+                             </thead>
+  <tr>
+    <th style="width:15%" >名稱：</th>
+    <th style="width:10%" id="span11"></th>
+    <th style="width:10%" id="span21"></th>
+    <th style="width:10%">&nbsp;</th>
+    <th style="width:10%">&nbsp;</th>
+  </tr>
+  <tr>
+    <td>股價：</td>
+    <td id="span12"> </td>
+    <td id="span22"> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>(漲／跌)</td>
+    <td id="span13"> </td>
+    <td id="span23"> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>最高：</td>
+    <td id="span14"> </td>
+    <td id="span24"> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>最低：</td>
+    <td id="span15"> </td>
+    <td id="span25"> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+    <tr>
+    <td>加權指：</td>
+    <td id="wi-d"> </td>
+    <td><div id="wi-c" class="wi-box"></div><div id="wi-o" class="wi-box"></div></td>
+    <td><div id="wi-h" class="wi-box"></div><div id="wi-l" class="wi-box"></div></td>
+    <td> </td>
+  </tr>
+  <!-- tr>
+    <td></td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr -->
+  </tbody>
+   <tfoot>
+   <tr>
+     <td><span id="date1" class="time-box"></span></td>
+     <td><div id="dowjon" class="wi-box"></div><div id="dowjon-p"></div></td>
+     <td><div id="nasdaq" class="wi-box"></div><div id="nasdaq-p"></div></td>
+     <td><div id="sp500" class="wi-box"></div><div id="sp500-p"></div></td>
+     <td><div id="pdpsc" class="wi-box"></div><div id="pdpsc-p"></div></td>
+     </tr> 	
+  </tfoot>
+</table>
+</div>
+ </main>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <footer>
+  <script src="js/scripts.js"></script>
+ <footer>
         <!-- Just for personal query testing. -->
-        </footer>
-
-    </body>
+ </footer>
+ </body>
 </html>

@@ -1,14 +1,13 @@
 ﻿          const element1 = document.getElementById("myBar1");
-          const element2 = document.getElementById("myBar2");
           let width = 0; 
           window.addEventListener('load',function(){
           	if (firstVisit === true) {
           		 firstVisit = false;
           		 element1.style.width = '0%'; 
-               element2.style.width = '0%'; 
                document.getElementById("s01").addEventListener("change", myFunction);         		
           	}  else {
           		 getDATA();
+          		 getWDATA();
           		 id = setInterval(getDATA, refSec);
           	}
 
@@ -18,6 +17,7 @@
              switch ( $(this).val()) {
                       case "0": 
                           width = 100;
+                       	  element1.style.width = '0%'; 
                           break;
                       case "1": 
                            if (firstVisit === true) {
@@ -115,14 +115,13 @@
                         
           function getDATA() {
            	   var d = new Date();
-               $('#date1').html(d.getMonth() + '/' + d.getDate() + '__' + d.getHours() + ':'  + d.getMinutes());
+               $('#date1').html((d.getMonth()+1) + '/' + d.getDate() + '　' + d.getHours() + ':'  + d.getMinutes());
                if (width === 100 ) {
                    clearInterval(id);
                    } else {
                     width += 7 ;
                    if (width > 95) width = width-95 ; 
                       element1.style.width = width + '%'; 
-                      element2.style.width = width + '%'; 
                    } 
                 if (firstVisit === false) {
                    document.getElementById("s01").addEventListener("change", myFunction);   
@@ -281,8 +280,8 @@
                     		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
-                             		$("#wi-t").addClass("wi-t"); 
-                 	              $("#wi-t").html(item31); 
+                             //		$("#wi-t").addClass("wi-t"); 
+                 	           //   $("#wi-t").html(item31); 
                              }
                              if (key31 === '11') {
                              	  if (item31> 0) 
@@ -298,7 +297,7 @@
                              	       $("#wi-d").addClass("wi-fellPrice"); 	
                              	  	 }
                              	  }
-                             	  $("#wi-d").html('(+/-)' + item31); 
+                             	  $("#wi-d").html(item31); 
                              } 
                         }) ;                 		
                     	}
@@ -323,4 +322,139 @@
                 });    
               //  Ending Weighed index section     
                };  
-                                    
+               
+                   
+          function getWDATA() {
+               /*
+                if (firstVisit === false) {
+                   document.getElementById("s01").addEventListener("change", myFunction);   
+                } 
+               */              	
+                $.getJSON('https://ws.api.cnyes.com/ws/api/v3/universal/quote?type=IDXMAJOR&column=B&page=2&limit=10',function(data){
+                    // console.log('success');
+                  $.each(data,function(key1,item1){
+                     if (key1 === 'data') {
+                   	//  $('ul').append('<li>'+item1+'</li>');
+                    var itemData = item1; 	          
+                    $.each(itemData,function(key2,item2){
+                    	if (key2  === 'items' ) {
+                    		  var itemData2 = item2;
+                    		  var itemDataTemp ;
+                    		//  Dowjon - starting
+                    		  $.each(itemData2[4],function(key3,item3){
+                            if (key3 === '6') {
+                 	           itemDataTemp = item3 ;
+                 	            }
+                    		  	if (key3 === '200009') {
+                    		  		  $("#dowjon").html(item3 + itemDataTemp );
+                             }   
+                             if (key3 === '11') {
+                 	              $("#dowjon-p").html(item3);                             	
+                             	  if (item3> 0) 
+                             	      {
+                             	       	$("#dowjon-p").addClass("risePrice"); 
+                             	       	$("#dowjon-p").addClass("risePrice"); 
+                             	      } 
+                             	  else {
+                             	  	 if (item3 === 0){ 
+                             	  	 	 $("#dowjon-p").addClass("flatPrice"); 
+                             	       $("#dowjon-p").addClass("flatPrice"); 		
+                             	  	 }
+                             	  	 else {
+                             	  	 	 $("#dowjon-p").addClass("fellPrice"); 
+                             	       $("#dowjon-p").addClass("fellPrice"); 	
+                             	  	 }
+                             	  }
+                             } 
+                        }) ; 
+                    		//  Dowjon - Ending  
+                    		//  Nasdaq - starting
+                    		  $.each(itemData2[6],function(key3,item3){
+                    		  	if (key3 === '6') {
+                 	              itemDataTemp = item3 ;
+                 	            }
+                    		  	if (key3 === '200009') {
+                    		  		  $("#nasdaq").html(item3 + itemDataTemp );
+                             }   
+                            if (key3 === '11') {
+                  	            $("#nasdaq-p").html(item3);                              	
+                             	  if (item3> 0) 
+                             	      {
+                             	       	$("#nasdaq-p").addClass("risePrice"); 
+                             	       	$("#nasdaq-p").addClass("risePrice"); 
+                             	      } 
+                             	  else {
+                             	  	 if (item3 === 0){ 
+                             	  	 	 $("#nasdaq-p").addClass("flatPrice"); 
+                             	       $("#nasdaq-p").addClass("flatPrice"); 		
+                             	  	 }
+                             	  	 else {
+                             	  	 	 $("#nasdaq-p").addClass("fellPrice"); 
+                             	       $("#nasdaq-p").addClass("fellPrice"); 	
+                             	  	 }
+                             	  }
+                             } 
+                        }) ; 
+                    		//  Nasdaq - Ending  
+                    		//  Sp500 - starting
+                    		  $.each(itemData2[5],function(key3,item3){
+                    		  	 if (key3 === '6') {
+                 	              itemDataTemp = item3 ;
+                 	            }
+                    		  	 if (key3 === '200009') {
+                    		  		  $("#sp500").html(item3 + itemDataTemp );
+                             } 
+                             if (key3 === '11') {
+                  	            $("#sp500-p").html(item3);                              	
+                             	  if (item3> 0) 
+                             	      {
+                             	       	$("#sp500-p").addClass("risePrice"); 
+                             	       	$("#sp500-p").addClass("risePrice"); 
+                             	      } 
+                             	  else {
+                             	  	 if (item3 === 0){ 
+                             	  	 	 $("#sp500-p").addClass("flatPrice"); 
+                             	       $("#sp500-p").addClass("flatPrice"); 		
+                             	  	 }
+                             	  	 else {
+                             	  	 	 $("#sp500-p").addClass("fellPrice"); 
+                             	       $("#sp500-p").addClass("fellPrice"); 	
+                             	  	 }
+                             	  }
+                             } 
+                        }) ; 
+                    		//  Sp500 - Ending  
+                    		//  pdpsc - starting
+                    		  $.each(itemData2[7],function(key3,item3){  
+                    		  	 if (key3 === '6') {
+                 	              itemDataTemp = item3 ;
+                 	            }
+                    		  	 if (key3 === '200009') {
+                    		  		  $("#pdpsc").html(item3 + itemDataTemp );
+                             } 
+                             if (key3 === '11') {
+                  	            $("#pdpsc-p").html(item3);                              	
+                             	  if (item3> 0) 
+                             	      {
+                             	       	$("#pdpsc-p").addClass("risePrice"); 
+                             	       	$("#pdpsc-p").addClass("risePrice"); 
+                             	      } 
+                             	  else {
+                             	  	 if (item3 === 0){ 
+                             	  	 	 $("#pdpsc-p").addClass("flatPrice"); 
+                             	       $("#pdpsc-p").addClass("flatPrice"); 		
+                             	  	 }
+                             	  	 else {
+                             	  	 	 $("#pdpsc-p").addClass("fellPrice"); 
+                             	       $("#pdpsc-p").addClass("fellPrice"); 	
+                             	  	 }
+                             	  }
+                             } 
+                        }) ; 
+                    		//  pdpsc - Ending                 		                    		                         		              		
+                    	}
+                     });               
+                  }
+                 });
+                }); 
+               };  
